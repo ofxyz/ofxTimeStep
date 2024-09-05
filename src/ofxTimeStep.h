@@ -11,6 +11,8 @@ public:
 	void update();
 
 	float getTimeStep();
+	float getSeconds();
+	float getMillis();
 
 private:
 	std::chrono::time_point<std::chrono::high_resolution_clock> m_Start;

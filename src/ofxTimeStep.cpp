@@ -10,14 +10,23 @@ void ofxTimeStep::update()
 	reset();
 }
 
+// Get Cents
 float ofxTimeStep::getTimeStep()
 {
+	return m_TimeStep * 0.01;
+}
+
+float ofxTimeStep::getSeconds() {
+	return m_TimeStep * 0.001;
+}
+
+float ofxTimeStep::getMillis() {
 	return m_TimeStep;
 }
 
 float ofxTimeStep::elapsed()
 {
-	return std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - m_Start).count() * 0.0000001f;
+	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now() - m_Start).count();
 }
 
 void ofxTimeStep::reset() {
