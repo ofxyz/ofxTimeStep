@@ -2,7 +2,7 @@
 
 #include <chrono>
 
-// Version 0.4
+// Version 0.5
 
 class ofxTimeStep
 {
@@ -10,12 +10,15 @@ public:
 	ofxTimeStep();
 
 	void update(); // Call every frame
-	float getSeconds();
-	float getMicros();
-	float getMillis();
+	float lastFrameSeconds();
+	float lastFrameMicros();
+	float lastFrameMillis();
 
 	// Use as timer
-	float elapsedMillis();
+	float timerMinutes();
+	float timerSeconds();
+	float timerMicros();
+	float timerMillis();
 	void reset();
 
 private:

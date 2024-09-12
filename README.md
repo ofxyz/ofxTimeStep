@@ -6,14 +6,13 @@ ofxTimeStep
 Get your steps in time regardless of frame rate.
 
   - Call `update()` every frame
-  - Use `getSeconds()`, `getMicros()`, `getMillis()` to get the frame delta.
+  - Use `lastFrameSeconds()`, `lastFrameMicros()`, `lastFrameMillis()` to get the frame delta.
 
 
 Use as timer:
 
 	ofxTimeStep timer;
-	timer.elapsedMillis();
+	timer.timerMillis();
 	timer.reset();
 
 > Did you see ofGetLastFrameTime()?
-

@@ -9,7 +9,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 	ts.update();
-	step += ts.getMillis();
+	step += ts.lastFrameMillis();
 
 	if (step > 300) {
 		targetFPS = ceil(ofMap(sin(ofGetElapsedTimef()), -1, 1, 10, 60));
@@ -25,15 +25,15 @@ void ofApp::draw() {
 	ofSetColor(0, 255, 0);
 	ofDrawBitmapString("Target FPS: " + std::to_string(targetFPS) + " (Modulated)", 25,  30);
 	ofDrawBitmapString("Actual FPS: " + std::to_string((int)ofGetFrameRate())     , 25,  50);
-	ofDrawBitmapString("TimeStep (Seconds): " + std::to_string(ts.getSeconds() )  , 25,  80);
-	ofDrawBitmapString("TimeStep (Micros) : " + std::to_string(ts.getMicros()  )  , 25, 100);
-	ofDrawBitmapString("TimeStep (Millis) : " + std::to_string(ts.getMillis()  )  , 25, 120);
+	ofDrawBitmapString("TimeStep (Seconds): " + std::to_string(ts.lastFrameSeconds() )  , 25,  80);
+	ofDrawBitmapString("TimeStep (Micros) : " + std::to_string(ts.lastFrameMicros()  )  , 25, 100);
+	ofDrawBitmapString("TimeStep (Millis) : " + std::to_string(ts.lastFrameMillis()  )  , 25, 120);
 
 	static float x_without_ts = -200;
 	static float x_with_ts = -200;
 	
 	x_without_ts += 2;
-	x_with_ts += (10 * ts.getMicros());
+	x_with_ts += (10 * ts.lastFrameMicros());
 
 	if (x_without_ts > ofGetWidth()) x_without_ts = -200;
 	if (x_with_ts > ofGetWidth()) x_with_ts = -200;
