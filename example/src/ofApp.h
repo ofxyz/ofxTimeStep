@@ -1,9 +1,7 @@
 #pragma once
 
-
 #include "ofMain.h"
 #include "ofxTimeStep.h"
-
 
 class ofApp: public ofBaseApp {
 	public:
@@ -22,6 +20,7 @@ class ofApp: public ofBaseApp {
 		void gotMessage(ofMessage msg);
 
 	private:
-		int targetFPS;
+		int targetFPS = 30;
+		float step = 0.0f;
 		ofxTimeStep ts;
 };
