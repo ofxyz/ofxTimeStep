@@ -1,6 +1,8 @@
 #include "ofxTimeStep.h"
 
-ofxTimeStep::ofxTimeStep(): m_TimeStep(0.0f){
+ofxTimeStep::ofxTimeStep(): m_TimeStep(0.0f)
+{
+	m_Step = std::chrono::high_resolution_clock::now();
 	reset();
 }
 
@@ -30,5 +32,4 @@ float ofxTimeStep::elapsedMillis()
 
 void ofxTimeStep::reset() {
 	m_Start = std::chrono::high_resolution_clock::now();
-	m_Step  = std::chrono::high_resolution_clock::now();
 }
